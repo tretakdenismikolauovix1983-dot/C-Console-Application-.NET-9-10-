@@ -1,0 +1,39 @@
+using System class Program
+{
+static void Main()
+Console. Outputen coding = Sistem.Text. Encoding. UTF8;
+Console. WriteLine("--- Програма допуску на атраціон---");
+#include <iostream> using nomespace std;
+int mail/()
+{
+    int age, height, weight;
+    cout<<"Enter age:";
+    cin>>age;
+    cout<<"Enter height(cm):";
+    cin>>height;
+    cout<<"Enter weight(rg):";
+    cin>>weight;
+    if(age<12)
+    {
+        cout<<"Vy zanadto molodi";
+    }
+    else
+    {
+        if(height<140//height>200)
+        {
+            cout<<"Zrist ne vidhovidae normam bezpeky";
+        }
+        else
+        {
+            if(weight>120)
+            {
+                cout<<"Perevysheno limitu vagy";
+            }
+            else
+            {
+                cout<<"Laskavo prosymo na atraktsion!";
+            }
+        }
+    }
+    returoo;
+}
