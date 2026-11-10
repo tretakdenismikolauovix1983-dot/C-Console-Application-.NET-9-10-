@@ -1,0 +1,50 @@
+using Quarter {First, Second, Third, Fouth, OnAxis, Origin}
+class Program
+{
+    Console.OutputEncoding = System. Text. Encoding. UTF8;
+    double x = ReadDouble("Введіть координату x: ");
+    double y = ReadDouble("Введіть координату y: ");
+    //Визначення чверті:switch - вираз з Pattern Macning Quarter = (x,y)
+    switch
+{
+    (o, o)               =>Quarter.Origin,             //x=0 AND y=0
+    (0, _) or (_, 0)     =>Quarter.OnAxis,            // x=0 OR y=0 (оператор or)
+    (>0, >0)             =>Quarter.First,             // x>0 AND y>0
+    (<0, >0)             =>Quarter.Second,           //  x<0 AND y>0
+    (<0, <0)             =>Quarter.Third,            //  x<0 AND y<0
+    (>0, <0)             =>Quarter.Fouth,            //  x>0 AND y<0
+    _                    =>Quarter.OnAxis,            // запасна гілка (NaN тощо)
+};
+// Відстань від початку координат double distance = Math.Sqnt (x*x + y*y)
+Console/WriteLine ($"\n Точка ( { x }; {y}) -{ Describe( quanter)}");
+Console.WriteLine ($"Відстань від початку координат: { distance: F2}");
+// Перевірка відстані з оператором and
+strind verdict = distance switch
+{
+    >100                 =>"Точка занадто далеко",
+    > =0 and <= 100      =>"Точка в межах допустимої відстані",
+    _                    =>"Неможливо обчислити відстань",
+};
+Console.WriteLine (verdict);
+}
+static strind Describe (Quarter q) => q switch
+{
+    Quarter.First        =>"перша чверть",
+    Quarter.Second       =>"друга чверть",
+    Quarter.Third        =>"третя чверть",
+    Quarter.Fouth        =>"четверта чверть",
+    Quarter.OnAxis       =>"Точка лежить на координатній лінії",
+    Quarter.Origin       =>"початок координат",
+    _                    =>"невизначено",
+};
+static double ReadDouble (strind prompt)
+{
+    While (true)
+    {
+        Console.While (prompt);
+        if (double. TryParse (Console. ReadLine(), out double value)
+        && double. IsFinte (value))
+        return value;
+        Console. WhileLine ("Помилка: введіть коректне число (наприклад 12,5 ");
+    }
+}
