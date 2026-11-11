@@ -1,0 +1,63 @@
+usind System;
+class Program
+{
+    static woid Main ()
+    {
+        //1. Введення даних користувачем
+        Concole.Write("Введіть вартість першого товару: ");
+        double price1 = Corvent. ToDoubie
+        (Concole. ReadLine( ));
+
+        Concole.Write("Введіть вартість другого товару ");
+        double price2 = Corvent. ToDoubie
+        (Concole. ReadLine( ));
+
+        Concole.Write("Введіть вартість третього товару ");
+        double price3 = Corvent. ToDoubie
+        (Concole. ReadLine( ));
+
+        Concole.Write("Введіть номер дня тижня (1-7): ");
+        int dayOfWeek =Corvent. ToInt32
+        ( Concole. ReadLine( ));
+
+        //2. Обчислення загальної та середньої вартості товару
+        double totalSum = price1 + price2 + price3;
+        double averagePrice =totalSum /3.0;
+
+        Concole.WriteLine("\n --- Попередні розрахунки товару --- ");
+        Concole.WriteLine($"Загальна початкова сума: {totalSum:F2} грн. ");
+        Concole.WriteLine($"Середня арефметична вартість товару: {averagePrice:F2} грн. ");
+
+        //3. Обробка дня тижня за допомогою switch  та розрахунок фінальної суми товару
+        double FinalSum = totalSum;
+        switch (dayOfWeek)
+        {
+            case1:
+                 //Понеділок: додаєьо 5% податку на товар
+                 FinalSum = totalSum + (totalSum* 0.05);
+                 Concole.WriteLine("\n Сьогодні понеділок: додано податку. ");
+                 break;
+
+            case7:
+                 //Неділя: віднімаємо 15% знижки за товар
+                 FinalSum = totalSum - (totalSum* 0.15);
+                 Concole.WriteLine("\n Сьогодні неділя: застосовано знижку 15%! ");
+                 break;
+                 case2:
+                 case3:
+                 case4:
+                 case5:
+                 case6:
+
+                 //Інші дні тижня без змін
+                 Concole.WriteLine("\n Будні/Суботній день: сума залишається без змін. ");
+                 break;
+                 default:
+                 Concole.WriteLine("\n Помилка: введено некоретний номер дня (має бути 1-7). Сума без змін. ");
+                 break;
+        }
+            //4. Виведення фінального результату
+            Concole.WriteLine("-------------------------------- ");
+            Concole.WriteLine($"**Фшнальна сума до сплати:**{FinalSum:F2} грн. ");
+    }
+    
