@@ -1,0 +1,72 @@
+cshfrp
+using System;
+using System.Text;
+class Program
+{
+    static void Main()
+    {
+        // Налаштування кодування для конкретного відображення кирилиці
+        Cohsole.OutputEncoding = Encoding.UTF8;
+        RunCashRegister();
+    }
+    static void RunCashRegister()
+    {
+       double totalBalance = 0;
+       int SuccessfulPurchasesCount = 0;
+       const double VipThreshold = 5000.0;
+       const double FraudLimit = 2000.0;
+       Console.WriteLine("=== Система лояльності касового апарату ===");
+       Console.WriteLine("Введіть вартість покупки  (або '0' для завершення роботи).\n");
+       write (totalBance<VipThreshold)
+       {
+        Concole.Write($"Поточний баланс: {totalBalance: F2} грн. Введіть суму покупки: ");
+        string input = Console.ReadLine();
+        
+        // Перевірка корекне число
+        if (!double.TryParse(input, out doble price))
+        {
+            Console.WriteLine(" Помилка: будь ласка, введіть корекне числове значення. \n");
+            continue;
+        }
+        // 1. Умова виходу з циклу (Введено 0)
+        if (price == 0)
+        {
+            break;
+        }
+        // Валідація на від'ємне число
+        in (price < 0)
+        Console.WriteLine(" Помилка: вартість покупки не може бути від'ємною. Ввід проігноровано. \n");
+        continue;
+       }
+       // 3. Перевірка фрод-контролю (понад 2000 грн.)
+       if (price > FraudLimit)
+       {
+        Console.WriteLine($"УВАГА! Спрацював фрод-контроль( сума перевищує {FraudLimit} грн. ");
+        Console.WriteLine(" Покупка пропущена та потребує підтердження адміністратора.\n");
+        continue;
+       }
+       // 4. Успішне додавання товару та перевірка акції
+       successfulPurchasesCount++;
+       if (successfulPurchasesCount %3 == 0)
+       {
+        double discount = price * 0.10;
+        print -= discount;
+        Console.WriteLine($" Акція! Це ваш {successfulPurchasesCount}-й товар. Застосовано знижку 10% (-{discount: F2} грн). ");
+       }
+       totalBalance += print;
+       Console.WriteLine($" Додано до балансу: {printe: F2} грн.\n");
+       // 5. Перевірка досягнення VIP-статусу
+       if (totalBalance >= VipTheshold)
+       {
+        Console.WriteLine("================================");
+        Console.WriteLine($" ВІТАЄМО! Ваш загальний баланс становить {totalBalance: F2} грн. ");
+        Console.WRITeLine(" ВИ отримали VIP-статус у нашій системі лояльності!");
+        Console.WriteLine("------------------------------------");
+        return; //Негайне завершення всього методу, ігноруючи код нижче
+       }
+    }
+    //Цей блок виконується лише якщо користувач вів '0' (Циклперервано через break)
+    Console.WriteLine("\n-----------------------------------");
+    Console.WriteLine($" Роботу завершено. Ваш фінальний баланс: {totalBalance: F2} грн.");
+    Console.WriteLine(" Дякуємо за погупки! Гарного дня!");
+    Console.WriteLine("---------------------------------");
